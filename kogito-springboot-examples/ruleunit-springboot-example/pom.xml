@@ -4,17 +4,14 @@
          xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/maven-v4_0_0.xsd">
   <modelVersion>4.0.0</modelVersion>
 
-  <parent>
-    <groupId>org.kie.kogito.examples</groupId>
-    <artifactId>kogito-springboot-examples</artifactId>
-    <version>1.33.1-SNAPSHOT</version>
-  </parent>
+  <groupId>org.kie.kogito.examples</groupId>
   <artifactId>ruleunit-springboot-example</artifactId>
   <name>Kogito Example :: RuleUnit - Spring Boot</name>
+  <version>1.33.1-SNAPSHOT</version>
 
   <properties>
-    <version.org.kie.kogito>1.33.1-SNAPSHOT</version.org.kie.kogito>
-    <kogito.bom.version>1.33.1-SNAPSHOT</kogito.bom.version>
+    <version.org.kie.kogito>1.33.0.Final</version.org.kie.kogito>
+    <kogito.bom.version>1.33.0.Final</kogito.bom.version>
   </properties>
 
   <dependencyManagement>
@@ -71,6 +68,21 @@
             </goals>
           </execution>
         </executions>
+      </plugin>
+      <plugin>
+        <artifactId>maven-compiler-plugin</artifactId>
+        <version>3.10.1</version>
+        <configuration>
+          <parameters>true</parameters>
+          <source>11</source>
+          <target>11</target>
+          <showDeprecation>true</showDeprecation>
+          <showWarnings>true</showWarnings>
+          <compilerArgs>
+            <arg>-Xlint:all</arg>
+            <arg>-Xlint:-processing</arg>
+          </compilerArgs>
+        </configuration>
       </plugin>
     </plugins>
   </build>
