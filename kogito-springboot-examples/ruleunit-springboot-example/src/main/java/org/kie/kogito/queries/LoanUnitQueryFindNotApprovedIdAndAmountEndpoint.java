@@ -17,8 +17,6 @@ package org.kie.kogito.queries;
 
 import java.util.List;
 import java.util.Map;
-
-import org.drools.ruleunits.api.RuleUnitProvider;
 import org.springframework.http.MediaType;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
@@ -33,12 +31,19 @@ import static java.util.stream.Collectors.toList;
 @RequestMapping("/find-not-approved-id-and-amount")
 public class LoanUnitQueryFindNotApprovedIdAndAmountEndpoint {
 
+    @Autowired
+    RuleUnit<org.kie.kogito.queries.LoanUnit> ruleUnit;
+
     public LoanUnitQueryFindNotApprovedIdAndAmountEndpoint() {
+    }
+
+    public LoanUnitQueryFindNotApprovedIdAndAmountEndpoint(RuleUnit<org.kie.kogito.queries.LoanUnit> ruleUnit) {
+        this.ruleUnit = ruleUnit;
     }
 
     @PostMapping(produces = MediaType.APPLICATION_JSON_VALUE, consumes = MediaType.APPLICATION_JSON_VALUE)
     public List<LoanUnitQueryFindNotApprovedIdAndAmount.Result> executeQuery(@RequestBody(required = true) org.kie.kogito.queries.LoanUnit unitDTO) {
-        RuleUnitInstance<org.kie.kogito.queries.LoanUnit> instance = RuleUnitProvider.get().createRuleUnitInstance(unitDTO);
+        RuleUnitInstance<org.kie.kogito.queries.LoanUnit> instance = ruleUnit.createInstance(unitDTO);
         // Do not return the result directly to allow post execution codegen (like monitoring)
         List<LoanUnitQueryFindNotApprovedIdAndAmount.Result> response = LoanUnitQueryFindNotApprovedIdAndAmount.execute(instance);
         instance.close();

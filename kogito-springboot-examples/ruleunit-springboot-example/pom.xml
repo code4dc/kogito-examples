@@ -35,6 +35,11 @@
       <groupId>org.kie.kogito</groupId>
       <artifactId>kogito-rules-spring-boot-starter</artifactId>
     </dependency>
+<!--    <dependency>-->
+<!--      <groupId>org.drools</groupId>-->
+<!--      <artifactId>drools-wiring-dynamic</artifactId>-->
+<!--      <version>8.33.0.Final</version>-->
+<!--    </dependency>-->
 
     <!-- test related -->
     <dependency>
