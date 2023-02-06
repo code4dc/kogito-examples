@@ -24,6 +24,7 @@ import org.springframework.boot.autoconfigure.jackson.Jackson2ObjectMapperBuilde
 import org.springframework.context.annotation.Bean;
 import org.springframework.http.converter.json.Jackson2ObjectMapperBuilder;
 
+import com.fasterxml.jackson.databind.SerializationFeature;
 import com.fasterxml.jackson.databind.util.StdDateFormat;
 import com.fasterxml.jackson.datatype.jsr310.JavaTimeModule;
 
@@ -39,6 +40,9 @@ public class GlobalObjectMapper {
 
             @Override
             public void customize(Jackson2ObjectMapperBuilder builder) {
+                if (!configBean.failOnEmptyBean()) {
+                    builder.featuresToDisable(SerializationFeature.FAIL_ON_EMPTY_BEANS);
+                }
                 builder.dateFormat(new StdDateFormat().withColonInTimeZone(true).withTimeZone(TimeZone.getDefault()));
                 builder.modulesToInstall(new JavaTimeModule());
             }
