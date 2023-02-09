@@ -21,6 +21,8 @@ import org.drools.ruleunits.api.RuleUnitData;
 
 public class LoanUnit implements RuleUnitData {
 
+    public static final String THIS_IS_A_CONST = "I AM CONST";
+
     private int maxAmount;
 
     private DataStore<LoanApplication> loanApplications;

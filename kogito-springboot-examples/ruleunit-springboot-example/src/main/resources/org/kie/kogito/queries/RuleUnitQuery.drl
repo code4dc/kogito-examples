@@ -18,8 +18,10 @@ unit LoanUnit;
 
 import org.kie.kogito.queries.LoanApplication
 
+import static org.kie.kogito.queries.LoanUnit.THIS_IS_A_CONST;
+
 rule SmallDepositApprove when
-    $l: /loanApplications[ applicant.age >= 20, deposit < 1000, amount <= 2000 ]
+    $l: /loanApplications[ applicant.age >= 20, deposit < 1000, amount <= 2000, id != THIS_IS_A_CONST]
 then
     modify($l) { setApproved(true) };
 end
