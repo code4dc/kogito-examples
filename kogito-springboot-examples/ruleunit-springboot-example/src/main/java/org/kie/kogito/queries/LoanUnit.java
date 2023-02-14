@@ -49,4 +49,8 @@ public class LoanUnit implements RuleUnitData {
         this.maxAmount = maxAmount;
     }
 
+    public static String processParam(final String param) {
+        return param.toUpperCase();
+    }
+
 }

@@ -52,6 +52,10 @@ public class RestQueryTest {
                     "      \"applicant\":{\n" +
                     "        \"age\":45,\n" +
                     "        \"name\":\"John\"\n" +
+                    "      },\n" +
+                    "      \"parameters\":[\n" +
+                    "           \"John\"\n" +
+                    "           ]\n" +
                     "      }\n" +
                     "    },\n" +
                     "    {\n" +

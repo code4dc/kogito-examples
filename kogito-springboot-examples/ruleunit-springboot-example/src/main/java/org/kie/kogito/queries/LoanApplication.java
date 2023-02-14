@@ -27,6 +27,8 @@ public class LoanApplication {
 
     private boolean approved = false;
 
+    private String[] parameters;
+
     public LoanApplication() {
     }
 
@@ -75,6 +77,14 @@ public class LoanApplication {
 
     public void setDeposit(int deposit) {
         this.deposit = deposit;
+    }
+
+    public String[] getParameters() {
+        return parameters;
+    }
+
+    public void setParameters(final String[] parameters) {
+        this.parameters = parameters;
     }
 
 }

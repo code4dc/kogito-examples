@@ -18,9 +18,13 @@ unit LoanUnit;
 
 import org.kie.kogito.queries.LoanApplication
 
-rule SmallDepositApprove when
-    $l: /loanApplications[ applicant.age >= 20, deposit < 1000, amount <= 2000 ]
+rule SmallDepositApprove
+no-loop
+when
+    $l: /loanApplications[ applicant.age >= 20, deposit < 1000, amount <= 2000, $param: parameters[0] ]
 then
+//    System.out.println($param.getClass());
+    System.out.println(LoanUnit.processParam($param));
     modify($l) { setApproved(true) };
 end
 
