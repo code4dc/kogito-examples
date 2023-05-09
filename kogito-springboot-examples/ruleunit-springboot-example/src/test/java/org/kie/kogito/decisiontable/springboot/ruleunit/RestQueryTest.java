@@ -44,6 +44,14 @@ public class RestQueryTest {
     private static final String JSON_PAYLOAD =
             "{\n" +
                     "  \"maxAmount\":5000,\n" +
+                    "  \"objects\":[\n" +
+                    "    {\n" +
+                    "       \"objectB\": " +
+                    "         {\n" +
+                    "           \"value\": \"TEST\"\n" +
+                    "         }\n" +
+                    "    }\n" +
+                    "  ],\n" +
                     "  \"loanApplications\":[\n" +
                     "    {\n" +
                     "      \"id\":\"ABC10001\",\n" +

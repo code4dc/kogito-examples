@@ -25,6 +25,16 @@ public class LoanUnit implements RuleUnitData {
 
     private DataStore<LoanApplication> loanApplications;
 
+    private DataStore<ObjectA> objects;
+
+    public DataStore<ObjectA> getObjects() {
+        return objects;
+    }
+
+    public void setObjects(DataStore<ObjectA> objects) {
+        this.objects = objects;
+    }
+
     public LoanUnit() {
         this(DataSource.createStore());
     }
