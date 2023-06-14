@@ -27,6 +27,7 @@ end
 
 rule SmallDepositReject when
     $l: /loanApplications[ applicant.age >= 20, deposit < 1000, amount > 2000 ]
+    /accessorKeyDataStore [fieldName == ""]
 then
     modify($l) { setApproved(false) };
 end
