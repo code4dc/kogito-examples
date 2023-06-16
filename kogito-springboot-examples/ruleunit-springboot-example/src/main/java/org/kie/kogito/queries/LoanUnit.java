@@ -15,6 +15,7 @@
  */
 package org.kie.kogito.queries;
 
+import org.drools.core.base.AccessorKey;
 import org.drools.ruleunits.api.DataSource;
 import org.drools.ruleunits.api.DataStore;
 import org.drools.ruleunits.api.RuleUnitData;
@@ -24,9 +25,18 @@ public class LoanUnit implements RuleUnitData {
     private int maxAmount;
 
     private DataStore<LoanApplication> loanApplications;
+    private DataStore<AccessorKey> accessorKeyDataStore;
 
     public LoanUnit() {
         this(DataSource.createStore());
+    }
+
+    public DataStore<AccessorKey> getAccessorKeyDataStore() {
+        return accessorKeyDataStore;
+    }
+
+    public void setAccessorKeyDataStore(DataStore<AccessorKey> accessorKeyDataStore) {
+        this.accessorKeyDataStore = accessorKeyDataStore;
     }
 
     public LoanUnit(DataStore<LoanApplication> loanApplications) {

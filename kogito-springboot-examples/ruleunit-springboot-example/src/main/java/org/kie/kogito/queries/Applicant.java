@@ -17,6 +17,8 @@ package org.kie.kogito.queries;
 
 public class Applicant {
 
+    public static final String THIS_IS_A_CONSTANT = "HERE_I_AM";
+
     private String name;
     private int age;
 
